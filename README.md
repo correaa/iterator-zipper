@@ -124,16 +124,16 @@ For `zipper` to work transparently (and efficiently) with STL all algorithms I h
 The class doesn't use the `std::ref` convention, references are handled by `make_zipper` and `zip` functions. 
 The first makes copies of all the underlying interators and the second captures references to the iterators when possible.
 
-For example, `a1` and `a2` are the same type (`zipper<vector<double>::iterator, vector<double>::iterator>`)
+For example, `z1` and `z2` are the same type (`zipper<vector<double>::iterator, vector<double>::iterator>`)
  
-	auto a1 = boost::zip(v.begin(), w.begin());
-	auto a2 = boost::make_zipper(v.begin(), w.begin());
+	auto z1 = zip(v.begin(), w.begin());
+	auto z2 = make_zipper(v.begin(), w.begin());
 
-but not `a3` (`zipper<vector<double>::iterator&, vector<double>::iterator&>`)
+but not `z3` (`zipper<vector<double>::iterator&, vector<double>::iterator&>`)
 
 	auto b1 = v.begin();
 	auto b2 = v.begin();
-	auto a3 = boost::zip(v.begin(), v.begin());
+	auto z3 = zip(v.begin(), v.begin());
 
-(in this case `b1` and `b2` can get modified trough modifications of `a3`, and dangling reference could occur if `b1`/`b2` went out of scope).
+(in this case `b1` and `b2` can get modified trough modifications of `z3`, and dangling references could occur if `b1`/`b2` went out of scope).
 
