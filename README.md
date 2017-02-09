@@ -39,8 +39,11 @@ Dereferencing the `zipper` iterator return a tuple of references from the underl
       friend void iter_swap(zipper const&, zipper const&);
     }
 
-    template <class... Iters> 
-    zipper<Iters...> make_zipper(Iters... vi){return zipper<Iters...>(vi...);}
+    template <class... Iterators> 
+    zipper<Iterators...> make_zipper(Iterators... vi);}
+    
+    template <class... Iterators>
+    zipper<Iterators...> zip(Iterator&&... vi)
 
 There reference member of `zipper` is the type of the tuple made of the reference types.
 
