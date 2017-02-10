@@ -133,7 +133,7 @@ but not `z3` (`zipper<vector<double>::iterator&, vector<double>::iterator&>`)
 
 	auto b1 = v.begin();
 	auto b2 = v.begin();
-	auto z3 = zip(v.begin(), v.begin());
+	auto z3 = zip(b1, b2);
 
 (in this case `b1` and `b2` can get modified trough modifications of `z3`, and dangling references could occur if `b1`/`b2` went out of scope).
 
