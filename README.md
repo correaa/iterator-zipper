@@ -137,3 +137,7 @@ but not `z3` (`zipper<vector<double>::iterator&, vector<double>::iterator&>`)
 
 (in this case `b1` and `b2` can get modified trough modifications of `z3`, and dangling references could occur if `b1`/`b2` went out of scope).
 
+## Related work
+
+http://www.boost.org/doc/libs/1_63_0/libs/iterator/doc/zip_iterator.html
+(limited Readable semantics, does not interoperate with `sort` and other mutating algorithms.)
